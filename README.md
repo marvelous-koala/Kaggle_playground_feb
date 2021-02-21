@@ -38,13 +38,13 @@ Kaggle Notebook에 올라온 코드를 활용 할 예정
 특징_ 일단 정한 파라미터로 모델을 train 시키고, 여기에 과적합 규제(L2 규제와 num_leaves, cat_smooth 등)를 완화시켜서 재학습시킴
 # 재학습이라는 아이디어로 점수를 많이 올린 듯
 ### 처음 학습(과적합 규제) - 재학습(규제 완화) -재학습2(좀 더 완화) ---
+##### 요런 코드를 사용 함 (0.9로 규제를 완화)
 
-요런 코드를 사용 함 (0.9로 규제를 완화)
-    for i in range(1, 8):
-        if i >2:    
-        params['reg_lambda'] *= 0.9
-        params['reg_alpha'] *= 0.9
-        params['num_leaves'] += 40
+        for i in range(1, 8):
+            if i >2:    
+            params['reg_lambda'] *= 0.9
+            params['reg_alpha'] *= 0.9
+            params['num_leaves'] += 40
         
 ### 2번 코드
 ### https://www.kaggle.com/craigmthomas/tps-feb-2021-lgb-xgb-combo
