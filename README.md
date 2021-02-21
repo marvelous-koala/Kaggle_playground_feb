@@ -50,7 +50,11 @@ Kaggle Notebook에 올라온 코드를 활용 할 예정
 ### https://www.kaggle.com/craigmthomas/tps-feb-2021-lgb-xgb-combo
 
 특징_ 간단한 앙상블 기법, XGB 파라미터를 어느 정도 정리해서 올려주었음
+
 여기서 파라미터를 가져오던지, 다시 optuna로 최적화를 하던지 해서
+
 XGB도 1번 LGBM의 방식으로 학습시키면 어떨까(학습/재학습) 생각 중
+
 그래서 1번과 2번을 앙상블
+
 (앙상블 비율 산출은 2번 코드에 Find best combo )
