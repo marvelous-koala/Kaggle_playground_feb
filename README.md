@@ -58,3 +58,35 @@ XGB도 1번 LGBM의 방식으로 학습시키면 어떨까(학습/재학습) 생
 그래서 1번과 2번을 앙상블
 
 (앙상블 비율 산출은 2번 코드에 Find best combo )
+
+
+## 2월 27일 ~~
+### Comparison Method 응용
+### https://www.kaggle.com/somayyehgholami/comparative-method-tabular-feb-301
+
+#### 20개의 submission set을 앙상블하는 아이디어
+#### 비율만큼 추가하는 방식으로 진행
+
+        def generate(main, support, coeff):
+
+            g = main.copy()    
+            for i in main.columns[1:]:
+
+                res = []
+                lm, Is = [], []        
+                lm = main[i].tolist()
+                ls = support[i].tolist()  
+
+                for j in range(len(main)):
+                    res.append((lm[j] * coeff) + (ls[j] * (1.- coeff)))            
+                g[i] = res
+
+            return g
+            
+#### 이후 Compare 기법도 사용(다른 n개의 자료에 비해 최종 제출본의 자료가 큰가 / 작은가 - 경우에 따라 후처리 추가 진행)
+#### 앞의 1번 코드와 2번 코드를 활용하고 EDA로 정리한 Trainset을 가지고 스스로의 제출본 완성(LB score_0.8420)
+#### 본인의 제출본을 3번의 Comparison 기법 Dataset에 추가하여 최종 25개의 Submission을 가지고 앙상블, 비교기법 시도
+
+#### 상위 3%로 경진대회 마무리
+
+![image](https://user-images.githubusercontent.com/76254564/109543745-0644e580-7b0a-11eb-82ad-296f37143980.png)
